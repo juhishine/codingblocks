@@ -1,26 +1,22 @@
 package Jan29_lecture22_recursion2;
 
-public class subsequence {
-
+public class Subsequenceway2 {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String s="abc";
-		
-		subsequence(s,"");
-		System.out.println(count);
+       String s="abc";
+		System.out.println("\n"+subsequence(s,""));
 	}
 	static int count=0;//its in heap
-	public static void subsequence(String input,String output){
+	public static int subsequence(String input,String output){
     //chote se start karna hai , a-> a, space
 		if(input.length()==0)
 			{
 			 System.out.println(output+" ");
-			 count++;
-		     return;
+		     return 1;
 			}
 		char ch=input.charAt(0);
-		subsequence(input.substring(1),output);
-		subsequence(input.substring(1),output+ch);
+		int a1=subsequence(input.substring(1),output);
+		int b1=subsequence(input.substring(1),output+ch);
+		return a1+b1;
 	}
 	// base condition banti hai , tree ke last node se 
 
